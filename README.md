@@ -67,4 +67,20 @@ Escribe buenos commits:
 prefijo: Titulo de commit
 Cuerpo que describe tu commit
 
+## TERCERA CLASE 
+
+# GitHub
+Te permite trabajar en equipo.
+1. Vamos a gitHub.com para crear cuenta.
+2. Creamos un nuevo repositorio. Con README en off
+3. Crear llave SSH. `ssh-keygen -t ed25519 -C "tuEmail"` 
+4. Probar la conexión: ssh -T git@github.com
+
+**OJO** si clonas el proyecto con https luego no podras realizar subidas 
+aunque vuelvas generar la llave SSH no lograras subir tus cambios. 
+
+Si creas un repo con tu nombre de usuario de GIT, gitHub entiende que se 
+trata de tu presentación, tu portafolio. 
+Crear tu portafolio en ingles en gitHub para el sábado 2 de mayo por 5 
+pts. El examen pasa a ser sobre 45 pts. 
 

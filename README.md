@@ -26,9 +26,9 @@ Caso Windows:
 Se debe descargar el instaldor de git bash, como indica en la página de git.
 Posteriormente a ejecutar el instaldor podemos abrir la aplicación de Git bash y realizar las configuraciones básicas vistas anteriormente. 
 
-# Segunda Clase
+## Segunda Clase
 
-## Los estados de GIT
+### Los estados de GIT
 Luego de hacer `git init` GIT maneja los siguientes tres estados para los archivos:
 
 1. Directorio de trabajo  Primer estado, creo modifico o elimino los ficheros, git aún no lo tiene asegurado.
@@ -49,38 +49,118 @@ Stage Area (preparado): llegas aquí con `git add [nombre_archivo]` o `git add .
 
 Quitar el archivo de Staged area: `git restore --staged [nombre_archivo]`
 
-Crear el punto de guardado: `git commit -m "mensaje descriptivo"`. Crea el punto de guardad con los archivos que están en el staged area. Para ver el punto de guardado: `git log` o mas resumido: `git log --oneline`. 
+Crear el punto de guardado: `git commit -m "mensaje descriptivo"`. Crea el punto de guardado con los archivos que están en el staged area. Para ver el punto de guardado: `git log` o mas resumido: `git log --oneline`. 
 
-¿Qué tal si quiero deshacer el último commit? `git reset --soft HEAD~1` 
+¿Qué tal si quiero deshacer el último commit? `git reset --soft HEAD~1` Este comando debe ser usado con mucho cuidado.
 
 ### Buenas Prácticas
-Commit atómico: cada que agregas UNA función nueva, cambios cortos, simples, una tarea enorme se puede divider en minitareas, de esas debes subir commits.
+Commit atómico: cada que agregas UNA FUNCIÓN NUEVA, cambios cortos, simples. 
+Una tarea enorme se puede divider en minitareas, de esas debes subir commits.
 
 Escribe buenos commits: 
 - Deben ser descriptivos y con verbos imperativos (eliminar, agregar, remover, etc.).
 - No uses punto final y puntos suspensivos en tus mensajes.
 - Usa como máximo 50 caracteres para explicar tu commit.
-- Usa un prefijo para tus commits: `git commit -m "tipo de comit: descripción"`. Para el trabajo individual usar el prefijo docs
+- Usa un prefijo para tus commits: `git commit -m "tipo de comit: descripción"`. 
+Para este trabajo individual usar el prefijo docs
 
 ¿qué pasa si mi commit es tan grande que no lo puedo separar en distintos commits? Solución: `git commit` este comando abre el editor de texto predefinido, escribe allí con la siguiente estructura: 
 
-prefijo: Titulo de commit
+prefijo: Titulo de commit  
 Cuerpo que describe tu commit
 
 ## TERCERA CLASE 
 
-# GitHub
-Te permite trabajar en equipo.
-1. Vamos a gitHub.com para crear cuenta.
-2. Creamos un nuevo repositorio. Con README en off
-3. Crear llave SSH. `ssh-keygen -t ed25519 -C "tuEmail"` 
-4. Probar la conexión: ssh -T git@github.com
-
+### GitHub
+Te permite trabajar en equipo. Es la plataforma de desarrollo colaborativo 
+más grande del mundo.  
+#### Conectar tu repositorio local con GitHub
+Vamos a gitHub.com para crear cuenta. Ya con la cuenta creada hacemos lo siguiente:  
+1. Configura tu identidad (si no lo has hecho), puedes ver esta parte en la sección 
+¿Cómo instalar GIT?
+2. Generar llave SSH. La forma más fluida de trabajar si que te pida usuario y contraseña 
+a cada rato es usar **llaves SSH**. Ejecuta el siguiente comando:  
+`ssh-keygen -t ed25519 -C "tuEmail"`  
+3. Copia la llave generada en GitHub:  
+- `cat ~/.ssh/id_ed25519.pub` (y copias el texto que sale) 
+- Pégala en GitHub: Ve a tu GitHub -> Settings -> SSH and GPG keys -> New SSH key 
+ponle un nombre (ej. "Mi laptop") y pega el código. 
+4. Probar la conexión: `ssh -T git@github.com` si todo está bien, verás un mensaje de 
+exito.  
+#### ¿Cómo subir un proyecto nuevo?
+Una vez configurado lo anterior, el flujo para subir tus proyectos locales es este:  
+1. En GitHub: Dale al botón "+" -> New repository. Ponle nombre y no selecciones nada de 
+"README" o "License" (queremos el repo vacío).  
+2. En tu terminal (dentro de tu carpeta de proyecto): 
+    1. `git init` si aún no tiene git local.
+    2. `git add .` 
+    3. `git commit -m "Mi primer commit"` 
+    4. Conecta con el servidor, asegurate de usar la pestaña SSH en GitHub para copiar 
+    este link. `git remote add origin git@github.com:TU_USUARIO/NOMBRE_REPO.git` 
+    5. Sube el código: `git push -u origin main`  
+**El dia a dia** a partir de ahora, cada vez que hagas cambios, solo necesitas:
+1. `git add .`
+2. `git commit -m "mensaje"`
+3. `git push` Y listo, ya está en la nube.  
 **OJO** si clonas el proyecto con https luego no podras realizar subidas 
 aunque vuelvas generar la llave SSH no lograras subir tus cambios. 
-
+#### Portafolio en Git
 Si creas un repo con tu nombre de usuario de GIT, gitHub entiende que se 
 trata de tu presentación, tu portafolio. 
 Crear tu portafolio en ingles en gitHub para el sábado 2 de mayo por 5 
 pts. El examen pasa a ser sobre 45 pts. 
 
+## CUARTA CLASE
+### GIT remote 
+ permite gestionar nuestras conexiones con los repositorios 
+remotos.
+`git remote -v` nos permite ver las URLs exactas donde apunta nuestro repo.
+`git remote add <apodo> "url"` - Vincula nuestro repo local con uno en la nube. 
+`git remote set-url <apodo> "url"` - cambia la url donde apunta nuestro 
+repositorio.  
+Nota: <apodo> es ...  
+### Múltiples SSH  
+¿Qué pasa si necesitamos tener múltiples cuentas? Debemos generar más de una 
+llave SSH, pues esta nos da acceso a cada cuenta.  
+**Paso 1:** generamos la llave: `ssh-keygen -t ed25519 -C "" -f ~/.ssh <nombre llave>`     
+Nota: al momento de generar tu primera llave ssh se crea también la carpeta .ssh  
+Nota: el archivo .config debes crearlo en la carpeta .ssh, este ayuda a manejar 
+múltiples cuentas. 
+
+### Git checkout 
+Es el comando que nos permite desplazarnos visualmente atrás, ver lo 
+que hicimos en nuestros anteriores commits. Que el puntero apunte a 
+otro commit y ver lo que había entonces.  
+## QUINTA CLASE 
+Entrega de trabajo individual al viernes 1 de mayo (feriado), examen será el sábado 
+2 de mayo 692A, 8:15 
+### Ramas 
+Son versiones de nuestra rama main. En las cuales podemos trabajar sin afectar la rama 
+main. Permite trabajar en equipo.  
+#### Comandos
+`git branch` nos muestra las ramas que tenemos.  
+`git branch <nombre_rama>` nos permite crear una nueva rama.  
+`git branch -D <ramaEjemplo>` para eliminar la rama ramaEjemplo, tienes que estar fuera 
+de la rama rama_ejemplo para eliminarla.  
+`git checkout <ramaTres>` con esto me voy a la rama ramaTres.  
+`git checkout -b <nuevaRama>` crea nuevaRama y me mueve a esa rama.
+`git switch <ramaCuatro>` nos permite cambiar entre ramas.  
+`git switch -c <ramaCinco>`crea la rama ramaCinco y me mueve allí.  
+OJo con git restore ¿qué hace?  
+### Git Flow 
+Es un flujo de trabajo, un marco de trabajo porque tiene reglas establecidas, un estandar 
+para entendernos en equipo.  
+#### Ramas
+- rama main, aquí va el código que sabemos que funciona. Código en producción.
+- develop, es la rama de preproducción, ya casi entrando a producción.  
+Cuando quiero crear una nueva feature debo crear una rama de apoyo: 
+    - rama feature, por ejemplo, deseo agregar la funcionalidad sumar, entonces debo crear 
+    la rama feature/add-plus-function: 
+    `git checkout -b feature/add-plus-function`   
+    Todo lo que voy a hacer para esta función la trabajo en esta rama.  
+    Debo crear una rama feature por cada nueva función que vaya a implementar.  
+    Luego de fusionar la funcionalidad de esta rama con la dev ELMINAR LA RAMA feature. 
+    - rama release, se crea para hacer los testing. 
+    - rama hotfits, es una derivada de la MAIN, para solucionar de manera rápida un bug 
+    en el main. 
+    

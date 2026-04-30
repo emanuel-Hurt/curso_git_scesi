@@ -163,4 +163,40 @@ Cuando quiero crear una nueva feature debo crear una rama de apoyo:
     - rama release, se crea para hacer los testing. 
     - rama hotfits, es una derivada de la MAIN, para solucionar de manera rápida un bug 
     en el main. 
-    
+## SEXTA CLASE 
+Veremos cómo trabajar de manera grupal.  
+### git merge 
+Es el comando que nos permite fusionar ramas.    
+1ro nos vamos a la rama donde queremos colocar los cambios, movernos a la rama dev  
+2do `git fetch` mira las ramas de develop remota en busca de cambios y te INFORMA si existen cambios.  
+3ro `git pull origin develop` trae los cambios develop remoto a tu máquina local, 
+es la manera de estar actualizado con lo que hizo el equipo.  
+4to `git merge --no-ff <mi_rama>` (no fast forward) es para que mantenga el registro de los logs.
+Nota: dejá el mensaje del merge tal como está.  
+5to `gti branch -D <mi_rama>` Borramos la rama, porque ya no vamos a hacer nada mas allí.  
+### git merge conflictivo 
+Cuando distintos autores cambiaron el mismo archivo.  
+Abres tu editor de código, verás marcado las secciones confictivas, la idea es que veas con 
+que quedarte, pero debes eliminar los símbolos que pone git en el archivo.  
+
+Otro conflicto: Cuando alguien ya subio sus cambios y tu vas a subir recién tus cambios en el 
+mismo archivo.  
+
+Otro conflicto: Si tienes tu rama local con actualizaciones del remoto del inicio de los tiempos, 
+mejor obten los cambios, haz merge en tu local, resuelve los problemas y luego sube al remoto.  
+
+Nota: Si el repo no te pertenece debes hacer push -u ... la primera vez  
+
+El trabajo grupal es hasta el sábado 2 de mayo 21:00; 3 pts extra por hacer logo para el grupo en el 
+README.
+
+## SÉPTIMA CLASE 
+Confiamos en que la persona que va a hacer el merge sabe lo que va a hacer y es comunicativo, esto es 
+un error.  
+¿Cómo reducir estos riesgos? Obligar a que realice el flujo del pull request. Nos permite cuando está 
+fucionando ramas, permitir aprobar dicha intesión de pull.  
+Flujo:  
+1ro Como anfitrión debemos configurar restricciones a las ramas, entre ellas el pullrequest, el número 
+de votos para validar.  
+
+Nota: ¿qué hace .gitkeep? 

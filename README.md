@@ -67,7 +67,8 @@ Para este trabajo individual usar el prefijo docs
 ¿qué pasa si mi commit es tan grande que no lo puedo separar en distintos commits? Solución: `git commit` este comando abre el editor de texto predefinido, escribe allí con la siguiente estructura: 
 
 prefijo: Titulo de commit  
-Cuerpo que describe tu commit
+- descripción 1
+- descripción 2 
 
 ## TERCERA CLASE 
 
@@ -107,8 +108,6 @@ aunque vuelvas generar la llave SSH no lograras subir tus cambios.
 #### Portafolio en Git
 Si creas un repo con tu nombre de usuario de GIT, gitHub entiende que se 
 trata de tu presentación, tu portafolio. 
-Crear tu portafolio en ingles en gitHub para el sábado 2 de mayo por 5 
-pts. El examen pasa a ser sobre 45 pts. 
 
 ## CUARTA CLASE
 ### GIT remote 
@@ -132,8 +131,6 @@ Es el comando que nos permite desplazarnos visualmente atrás, ver lo
 que hicimos en nuestros anteriores commits. Que el puntero apunte a 
 otro commit y ver lo que había entonces.  
 ## QUINTA CLASE 
-Entrega de trabajo individual al viernes 1 de mayo (feriado), examen será el sábado 
-2 de mayo 692A, 8:15 
 ### Ramas 
 Son versiones de nuestra rama main. En las cuales podemos trabajar sin afectar la rama 
 main. Permite trabajar en equipo.  
@@ -159,12 +156,12 @@ Cuando quiero crear una nueva feature debo crear una rama de apoyo:
     `git checkout -b feature/add-plus-function`   
     Todo lo que voy a hacer para esta función la trabajo en esta rama.  
     Debo crear una rama feature por cada nueva función que vaya a implementar.  
-    Luego de fusionar la funcionalidad de esta rama con la dev ELMINAR LA RAMA feature. 
+    Luego de fusionar la funcionalidad de esta rama con la rama dev, ELMINAR LA RAMA feature. 
     - rama release, se crea para hacer los testing. 
     - rama hotfits, es una derivada de la MAIN, para solucionar de manera rápida un bug 
     en el main. 
 ## SEXTA CLASE 
-Veremos cómo trabajar de manera grupal.  
+Continuamos viendo cómo trabajar de manera grupal.  
 ### git merge 
 Es el comando que nos permite fusionar ramas.    
 1ro nos vamos a la rama donde queremos colocar los cambios, movernos a la rama dev  
@@ -200,3 +197,18 @@ Flujo:
 de votos para validar.  
 
 Nota: ¿qué hace .gitkeep? 
+
+## OCTAVA CLASE 
+`git stash commit -m "commit momentaneo"` -> guarda cambios sin hacer commit, esto permite 
+que te cambies de rama por ejemplo. 
+`git stash list` te muestra la lista de git stash
+`git stash pop` te trae todo
+
+`git diff` 
+`git diff .` 
+`git diff <rama1> <rama2>`
+`git diff <archivo>` cuando el archivo no está en el staged area.
+`git diff --staged .` 
+`git diff --staged <archivo>` cuando el archivo está en el staged area.  
+
+¿Qué hacer cuando se aprobo un PR distinto al mío que toco algo que yo toque? 

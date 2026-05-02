@@ -1,8 +1,9 @@
 # CURSO GIT
 
 **propietario de este documento: Emanuel Hurtado Castro**
+**Email:** emanuel.hurtado.cast@gmail.com
 
-## Primera Clase
+## PRIMERA CLASE
 ### ¿Qué es GIT?
 Es un sistema de versiones distribuido, nos permite guardar archivos y sus versiones de manera local.
 Sistema de versiones: porque permite guardar archivos y las versiones de estos.
@@ -23,10 +24,10 @@ Caso Linux Ubuntu:
 4to verificar las configuraciones realizadas: `git config --list`
 
 Caso Windows:
-Se debe descargar el instaldor de git bash, como indica en la página de git.
+Se debe descargar el instaldor de git bash, como indica en la [página de git](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git).  
 Posteriormente a ejecutar el instaldor podemos abrir la aplicación de Git bash y realizar las configuraciones básicas vistas anteriormente. 
 
-## Segunda Clase
+## SEGUNDA CLASE
 
 ### Los estados de GIT
 Luego de hacer `git init` GIT maneja los siguientes tres estados para los archivos:
@@ -107,7 +108,8 @@ Una vez configurado lo anterior, el flujo para subir tus proyectos locales es es
 aunque vuelvas generar la llave SSH no lograras subir tus cambios. 
 #### Portafolio en Git
 Si creas un repo con tu nombre de usuario de GIT, gitHub entiende que se 
-trata de tu presentación, tu portafolio. 
+trata de tu presentación, tu portafolio. Por tanto el README que se creará 
+será como tu carta de presentación.  
 
 ## CUARTA CLASE
 ### GIT remote 
@@ -117,7 +119,10 @@ remotos.
 `git remote add <apodo> "url"` - Vincula nuestro repo local con uno en la nube. 
 `git remote set-url <apodo> "url"` - cambia la url donde apunta nuestro 
 repositorio.  
-Nota: <apodo> es ...  
+Nota: <apodo> es un alias que le damos a la url de un repositorio remoto. 
+Cuando ejecutas `git remote add origin <URL>`, le estas diciendo a Git: En lugar 
+de hacerme escribir toda esta URL larga cada vez que quiera subir o bajar código, 
+permíteme referirme a ella simplemente como **origin**.
 ### Múltiples SSH  
 ¿Qué pasa si necesitamos tener múltiples cuentas? Debemos generar más de una 
 llave SSH, pues esta nos da acceso a cada cuenta.  
@@ -204,11 +209,11 @@ que te cambies de rama por ejemplo.
 `git stash list` te muestra la lista de git stash
 `git stash pop` te trae todo
 
-`git diff` 
-`git diff .` 
-`git diff <rama1> <rama2>`
-`git diff <archivo>` cuando el archivo no está en el staged area.
-`git diff --staged .` 
-`git diff --staged <archivo>` cuando el archivo está en el staged area.  
-
-¿Qué hacer cuando se aprobo un PR distinto al mío que toco algo que yo toque? 
+`git diff` con este comando ves los cambios realizados en tu directorio de trabajo que aún 
+no has añadido al area de preparación.
+`git diff <rama1> <rama2>` para comparar dos ramas. 
+`git diff <archivo>` cuando el archivo no está en el staged area. Muestra las diferencias de 
+ese archivo con su versión anterior más reciente. 
+`git diff --staged .` muestra dotos los cambios que ya has añadido al área de preparación. 
+`git diff --staged <archivo>` cuando el archivo está en el staged area. Muestra las diferencias 
+del archivo con su versión anterior más reciente. 

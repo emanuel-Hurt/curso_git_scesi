@@ -1,6 +1,6 @@
 # CURSO GIT
 
-**propietario de este documento: Emanuel Hurtado Castro**
+**propietario de este documento: Emanuel Hurtado Castro**    
 **Email:** emanuel.hurtado.cast@gmail.com
 
 ## PRIMERA CLASE

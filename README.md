@@ -21,7 +21,12 @@ Caso Linux Ubuntu:
 3ro configuraciones básicas:
 `git config --global user.name [nombre-a-usar]`
 `git config --global user.email [email-a-usar]`
-4to verificar las configuraciones realizadas: `git config --list`
+4to verificar las configuraciones realizadas: `git config --list` 
+
+Ojo: `git config --global` afecta a todos los proyectos de tu usuario, mientras que `git config` 
+aplica solo al repositorio donde te encuentras (local).  
+**Jerarquía:** Git siempre busca la configuración local. Si no la encuentra, busca la global. Esto 
+significa que lo que configures a nivel **local sobreescribe** lo global para ese proyecto.
 
 Caso Windows:
 Se debe descargar el instaldor de git bash, como indica en la [página de git](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git).  
@@ -40,7 +45,8 @@ En el primer estado git solo observa tus archivos y los cataloga:
 - Untracked: sin seguimiento, git no tenia idea de su existencia, es algo nuevo que se creo.
 - Modified: cuando git ya conocia el archivo y nota que le hicieron cambios.
 
-`git status` nos permite ver el estado de nuestros archivos.
+`git status` te dice que está pasando en tu carpeta de trabajo en comparación con lo que Git 
+tiene guardado: Untracked files, changes not staged, Changes to be commit.
 
 `git restore [nombre_archivo]` , para descartar el cambio y volver a como estaba el archivo, **OJO: borra físicamente el cambio en el archivo**. Con git restore también podemos recuperar archivos borrados.
 
@@ -70,6 +76,20 @@ Para este trabajo individual usar el prefijo docs
 prefijo: Titulo de commit  
 - descripción 1
 - descripción 2 
+
+### Excribe buenos commits
+#### Prefijos
+| Prefijo | Aplicación |
+|---------|------------|
+| feat | para una nueva característica para el usuario |
+| fix | para un bug que afecta al usuario |
+| perf | para cambios que mejoran el rendimiento del sitio |
+| build | para cambios en el sistema de build, tareas de despliegue o instalación |
+| ci | para cambios en la integración continua |
+| docs | para cambios en la documentación |
+| refactor | para refactorización del código como cambios de nombre de variables o funciones |
+| style | para cambios de formato, tabulaciones, espacios o puntos y coma, etc; no afecta al usuario |
+| test | para test o refactorización de uno ya existente |
 
 ## TERCERA CLASE 
 
@@ -135,6 +155,9 @@ múltiples cuentas.
 Es el comando que nos permite desplazarnos visualmente atrás, ver lo 
 que hicimos en nuestros anteriores commits. Que el puntero apunte a 
 otro commit y ver lo que había entonces.  
+    `git checkout <id-del-commit>`  Ver como estaba el código en ese punto.  
+puedes mirar el código pero no estás en ninguna rama.
+
 ## QUINTA CLASE 
 ### Ramas 
 Son versiones de nuestra rama main. En las cuales podemos trabajar sin afectar la rama 

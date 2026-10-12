@@ -81,7 +81,7 @@ prefijo: Titulo de commit
 #### Prefijos
 | Prefijo | Aplicación |
 |---------|------------|
-| feat | para una nueva característica para el usuario |
+| feat | nueva característica para el usuario |
 | fix | para un bug que afecta al usuario |
 | perf | para cambios que mejoran el rendimiento del sitio |
 | build | para cambios en el sistema de build, tareas de despliegue o instalación |
@@ -90,6 +90,7 @@ prefijo: Titulo de commit
 | refactor | para refactorización del código como cambios de nombre de variables o funciones |
 | style | para cambios de formato, tabulaciones, espacios o puntos y coma, etc; no afecta al usuario |
 | test | para test o refactorización de uno ya existente |
+| chore | Configuración, dependencias, tareas menores |
 
 ## TERCERA CLASE 
 
